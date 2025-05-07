@@ -11,7 +11,7 @@ pipeline {
                 script {
                     echo "Building Docker image..."
                     bat 'docker build -t my-image-name .'
-
+                    bat 'docker container rm -f my-container'
                     echo "Running Docker container..."
                     bat 'docker run -d --name my-container -p 8001:80 my-image-name'
                 }
